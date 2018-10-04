@@ -236,7 +236,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                                 + "</font>"));
 
             }
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).substring(0,1000).replaceAll("(\r\n|\n)", "<br />")));
             View meta_bar = mRootView.findViewById(R.id.meta_bar);
             Picasso.with(getContext()).load(mCursor.getString(ArticleLoader.Query.PHOTO_URL))
                     .into(mPhotoView, PicassoPalette.with(mCursor.getString(ArticleLoader.Query.PHOTO_URL), mPhotoView)
